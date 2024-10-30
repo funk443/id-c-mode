@@ -40,7 +40,7 @@
   (let ((line (line-number-at-pos)))
     (shell-command-on-region
      (point-min) (point-max)
-     "astyle --style=java"
+     "astyle --style=kr"
      nil t)
     (goto-line line)))
 
@@ -48,12 +48,16 @@
   :doc "Keymap for ID's C Mode."
   "C-M-\\" #'id-c-mode-format-buffer)
 
+;;;###autoload
 (define-derived-mode id-c-mode prog-mode "ID's C"
   "Minimum syntax-highlighting C mode, indented by astyle."
   :syntax-table id-c-mode-syntax-table
   (setq-local font-lock-defaults (list id-c-mode-font-lock-keywords)
               comment-start "/* "
               comment-end " */"))
+
+;;;###autoload
+(add-to-list 'auto-mode-alist '("\\.[hc]\\'" . id-c-mode))
 
 (provide 'id-c-mode)
 
