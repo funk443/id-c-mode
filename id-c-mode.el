@@ -37,12 +37,14 @@
 
 (defun id-c-mode-format-buffer ()
   (interactive)
-  (let ((line (line-number-at-pos)))
-    (shell-command-on-region
-     (point-min) (point-max)
-     "astyle --style=kr"
-     nil t)
-    (goto-line line)))
+  (if (executable-find "astyle")
+      (let ((line (line-number-at-pos)))
+        (shell-command-on-region
+         (point-min) (point-max)
+         "astyle --style=kr"
+         nil t)
+        (goto-line line))
+    (message "ERROR: `astyle` not found in executable path.")))
 
 (defvar-keymap id-c-mode-map
   :doc "Keymap for ID's C Mode."
