@@ -1,6 +1,7 @@
 # ID's C Mode
 
-This is a minimal Emacs major mode for C (only, no C++).
+This is a minimal Emacs major mode for C (only, no C++), written for
+myself.
 
 It only highlights preprocessors, strings, and comments.  It uses
 relative identation, so you'll have to manage the indentation by
