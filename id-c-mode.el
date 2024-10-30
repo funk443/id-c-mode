@@ -42,7 +42,7 @@
         (shell-command-on-region
          (point-min) (point-max)
          "astyle --style=kr"
-         nil t)
+         nil 'no-mark)
         (goto-line line))
     (message "ERROR: `astyle` not found in executable path.")))
 
